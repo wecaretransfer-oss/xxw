@@ -1,1 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We Care Transfer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="wc-hero-wrap">
+      <div class="wc-hero">
+        <div class="wc-left">
+          <div class="wc-tag">Antalya Airport Transfer</div>
+          <h1>
+            <span class="wc-line1">We Care</span>
+            <span class="wc-typing-wrap">
+              <span id="wcTypingText"></span><span id="wcTypingCaret"></span>
+            </span>
+          </h1>
+          <p>
+            Private Mercedes Vito &amp; sedan transfers, flight tracking and free
+            waiting — pay on arrival or online.
+          </p>
+          <div class="wc-actions">
+            <a href="#booking" class="wc-btn-primary">Book your transfer</a>
+            <a
+              href="https://wa.me/905510868368"
+              target="_blank"
+              class="wc-btn-ghost"
+              >WhatsApp 24/7</a
+            >
+          </div>
+          <div class="wc-bullets">
+            <span><span class="wc-dot"></span>Free baby seat</span>
+            <span><span class="wc-dot"></span>Flight tracking</span>
+            <span><span class="wc-dot"></span>English support</span>
+          </div>
+        </div>
 
+        <div class="wc-right">
+          <div class="wc-glass-card">
+            <div class="wc-card-title">Quick booking</div>
+
+            <div class="wc-form-row">
+              <label>Pickup</label>
+              <input id="f-pickup" type="text" placeholder="Antalya Airport (AYT)" />
+            </div>
+            <div class="wc-form-row">
+              <label>Drop-off</label>
+              <input id="f-dropoff" type="text" placeholder="Belek / Hotel / Address" />
+            </div>
+            <div class="wc-form-row">
+              <label>Date</label>
+              <input id="f-date" type="datetime-local" />
+            </div>
+            <div class="wc-form-row">
+              <label>Passengers</label>
+              <input id="f-passengers" type="number" value="2" min="1" placeholder="2" />
+            </div>
+            <div class="wc-form-row">
+              <label>Luggages</label>
+              <input id="f-luggage" type="number" value="0" min="0" placeholder="0" />
+            </div>
+
+            <div class="wc-vehicle-picker" id="vehiclePicker">
+              <div class="wc-vehicle-trigger" id="vehicleTrigger">
+                <div>
+                  <strong id="vehicleSelectedTitle">Select vehicle</strong>
+                  <small id="vehicleSelectedDesc">tap to choose</small>
+                </div>
+                <span style="font-size: 1rem; opacity: 0.5">▾</span>
+              </div>
+              <div class="wc-vehicle-list" id="vehicleList">
+                <div
+                  class="wc-vehicle-item"
+                  data-title="Economic Sedan"
+                  data-desc="1-3 people"
+                  data-capacity="3"
+                >
+                  <img
+                    src="https://wecaretransfer.com/wp-content/uploads/2025/09/image-1-scaled.png"
+                    alt=""
+                  />
+                  <div class="wc-vehicle-text">
+                    <strong>Economic Sedan (€30)</strong>
+                    <span>1–3 people</span>
+                  </div>
+                </div>
+                <div
+                  class="wc-vehicle-item"
+                  data-title="Mercedes Vito"
+                  data-desc="4–6 people, 6 bags"
+                  data-capacity="6"
+                >
+                  <img
+                    src="https://wecaretransfer.com/wp-content/uploads/2025/09/image-1-scaled.png"
+                    alt=""
+                  />
+                  <div class="wc-vehicle-text">
+                    <strong>Mercedes Vito (€35)</strong>
+                    <span>4–6 people, 6 bags</span>
+                  </div>
+                </div>
+                <div
+                  class="wc-vehicle-item"
+                  data-title="Mercedes Luxury Vito"
+                  data-desc="Comfort • 4–6 passengers, 6 bags"
+                  data-capacity="6"
+                >
+                  <img
+                    src="https://wecaretransfer.com/wp-content/uploads/2025/09/image-1-scaled.png"
+                    alt=""
+                  />
+                  <div class="wc-vehicle-text">
+                    <strong>Mercedes Luxury Vito (€40)</strong>
+                    <span>Comfort • 4–6 passengers, 6 bags</span>
+                  </div>
+                </div>
+                <div
+                  class="wc-vehicle-item"
+                  data-title="Sprinter"
+                  data-desc="Group &amp; Family 1–16 passengers"
+                  data-capacity="16"
+                >
+                  <img
+                    src="https://wecaretransfer.com/wp-content/uploads/2025/09/image-1-scaled.png"
+                    alt=""
+                  />
+                  <div class="wc-vehicle-text">
+                    <strong>Sprinter (€50)</strong>
+                    <span>Group &amp; Family 1–16 passengers</span>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="f-vehicle" value="" />
+            </div>
+
+            <div id="wc-transfer-bar" class="wc-transfer-bar is-hidden">
+              <span class="wc-transfer-bar-label">Transfer price</span>
+              <span id="wc-transfer-bar-val" class="wc-transfer-bar-val">€0</span>
+            </div>
+
+            <div id="wc-extras" class="wc-extras is-hidden">
+              <div class="wc-extras-head">
+                <div class="wc-extras-head-title"> ✨ Make it special </div>
+                <small>optional add-ons</small>
+              </div>
+              <div class="wc-extras-grid">
+                <div class="wc-extra-card" data-extra="flower">
+                  <span class="wc-extra-badge">Top pick</span>
+                  <div class="wc-extra-icon">🌸</div>
+                  <div class="wc-extra-title">Flower welcome</div>
+                  <div class="wc-extra-sub">romantic / birthday</div>
+                </div>
+                <div class="wc-extra-card" data-extra="city">
+                  <div class="wc-extra-icon">🏙️</div>
+                  <div class="wc-extra-title">I want city tours</div>
+                  <div class="wc-extra-sub">we’ll text you available routes</div>
+                </div>
+                <div class="wc-extra-card" data-extra="baby">
+                  <div class="wc-extra-icon">👶</div>
+                  <div class="wc-extra-title">Baby seat</div>
+                  <div class="wc-extra-sub">first one free</div>
+                  <div class="wc-baby-controls">
+                    <div class="wc-baby-btn" data-baby="-">−</div>
+                    <div class="wc-baby-count" id="wcBabyCount">0</div>
+                    <div class="wc-baby-btn" data-baby="+">+</div>
+                  </div>
+                </div>
+                <div class="wc-extra-card" data-extra="snack">
+                  <span class="wc-extra-price">€25</span>
+                  <div class="wc-extra-icon">🥤</div>
+                  <div class="wc-extra-title">Snack packs</div>
+                  <div class="wc-extra-sub">fresh on arrival</div>
+                  <div class="wc-extra-info" data-info="snack">i</div>
+                </div>
+                <div class="wc-extra-card return" data-extra="return">
+                  <div class="wc-extra-icon">🔁</div>
+                  <div class="wc-extra-title">Book return – €5 off</div>
+                  <div class="wc-extra-sub">we’ll arrange the way back</div>
+                </div>
+              </div>
+              <div class="wc-total-bar wc-total-bar--small">
+                <span class="wc-total-bar-label">Extras total</span>
+                <span id="wcExtrasTotalVal" class="wc-total-bar-val">€0</span>
+              </div>
+            </div>
+
+            <div id="wc-return-section" class="wc-return-section is-hidden">
+              <div class="wc-return-title">Return transfer</div>
+              <div class="wc-return-row">
+                <label>Pickup (return)</label>
+                <input id="f-return-pickup" type="text" readonly />
+              </div>
+              <div class="wc-return-row">
+                <label>Drop-off (return)</label>
+                <input id="f-return-dropoff" type="text" readonly />
+              </div>
+              <div class="wc-return-inline">
+                <div class="wc-return-row">
+                  <label>Date (return)</label>
+                  <input id="f-return-date" type="datetime-local" />
+                </div>
+                <div class="wc-return-row">
+                  <label>Passengers</label>
+                  <input id="f-return-passengers" type="text" readonly />
+                </div>
+              </div>
+              <div class="wc-return-inline">
+                <div class="wc-return-row">
+                  <label>Luggages</label>
+                  <input id="f-return-luggage" type="text" readonly />
+                </div>
+                <div class="wc-return-row">
+                  <label>Vehicle</label>
+                  <input id="f-return-vehicle" type="text" readonly />
+                </div>
+              </div>
+              <div class="wc-total-bar wc-total-bar--small" id="wc-return-bar">
+                <span class="wc-total-bar-label">Return total</span>
+                <span id="wcReturnTotalVal" class="wc-total-bar-val">€0</span>
+              </div>
+            </div>
+
+            <div id="wc-price-card" class="wc-price-card">
+              <div class="wc-summary-line">
+                <span>Transfer</span>
+                <span id="wc-sum-transfer">€0</span>
+              </div>
+              <div class="wc-summary-line">
+                <span>Extras</span>
+                <span id="wc-sum-extras">€0</span>
+              </div>
+              <div class="wc-summary-line" id="wc-sum-return-line" style="display: none">
+                <span>Return transfer</span>
+                <span id="wc-sum-return">€0</span>
+              </div>
+              <div class="wc-summary-sep"></div>
+              <div class="wc-total-bar wc-total-main">
+                <span class="wc-total-bar-label">Total price</span>
+                <span id="wc-sum-total" class="wc-total-bar-val">€0</span>
+              </div>
+              <p class="wc-small">🔒 Secured payment</p>
+              <p class="wc-small"><span class="icon">🆓</span>Free cancellation</p>
+            </div>
+
+            <button class="wc-submit" type="button" id="wcSend">Send with WhatsApp</button>
+            <p class="wc-small">You will get driver details on WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8Xld3WpTARlOgR11Kq2JY08DW53YJU0k&amp;libraries=places"></script>
+    <script src="typing.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
